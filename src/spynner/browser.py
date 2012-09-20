@@ -476,8 +476,7 @@ class Browser(object):
         if self.embed_jquery or force:
             if not self.is_jquery_loaded():
                 jscode += self.jquery
-                if self.want_compat:
-                    jscode += "\nvar %s = jQuery.noConflict();" % self.jslib
+                jscode += "\nvar %s = jQuery.noConflict();" % self.jslib
                 jscode += "var spynner_jquery_loaded = 1 ;"
                 self.runjs(jscode, debug=False)
 
